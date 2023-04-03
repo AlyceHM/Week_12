@@ -68,7 +68,7 @@ class DOMManager {
             return HouseService.getAllHouses();
         
         })
-        .then((houses) => this.reander(houses));
+        .then((houses) => this.render(houses));
     }
     static addRoom(id) {
         for (let house of this.houses) {
@@ -82,7 +82,7 @@ class DOMManager {
             }
         }
     }
-    static deleteRoom(houseID, roomID) {
+    static deleteRoom(houseId, roomId) {
         for (let house of this.houses) {
             if (house._id == houseId) {
                 for (let room of house.rooms) {
@@ -132,7 +132,7 @@ class DOMManager {
                     `<p>
                     <span id="name-${room._id}"><strong>Name:</strong> ${room.name}</span>
                     <span id="area-${room._id}"><strong>Area:</strong> ${room.area}</span>
-                    <button class="btn btn-danger" onclick="DOMManager.deleteRoom('${house._id}')">Delete Room</button>
+                    <button class="btn btn-danger" onclick="DOMManager.deleteRoom('${house._id}', '${room._id}')">Delete Room</button>
                     </p>`
                 )
                
